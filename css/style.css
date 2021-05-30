@@ -1,0 +1,39 @@
+body {
+  background-color: rgb(169, 209, 240);
+}
+
+h1 {
+  font-size: 2em;
+  text-align: center; 
+}
+
+h3 {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+section {
+  background-color: rgb(193, 110, 190);width: max-content;
+  margin: auto;
+}
+
+section img {
+  width: 250px;
+  margin: 50px;
+
+}
+
+main div {
+  background-color: peachpuff;
+  width: max-content;
+  padding: 10px;
+  margin: auto;
+  margin-top: 25px;
+  border-radius: 12px;
+}
+
+main div:hover, section img:hover {
+  cursor: pointer;
+}
+
+
