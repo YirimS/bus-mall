@@ -1,9 +1,11 @@
 'use strict';
 
+// global variables
 let allProduct = [];
 let clicks = 0;
-let clicksAllowed = 15;
+let clicksAllowed = 25;
 
+// pathway to DOM
 let myContainer = document.querySelector('section');
 let myButton = document.querySelector('div');
 let imageOne = document.querySelector('section img:first-child');
@@ -12,7 +14,7 @@ let imageThree = document.querySelector('section img:last-child');
 
 imageOne.src = 'img/water-can.jpg';
 
-
+// constructor function
 function Product(name, fileExtension = 'jpg') {
   this.name = name;
   this.src = `img/${name}.${fileExtension}`;
@@ -20,7 +22,7 @@ function Product(name, fileExtension = 'jpg') {
   this.views = 0;
   allProduct.push(this);
 }
-
+// product instanciation
 new Product('bag');
 new Product('banana');
 new Product('bathroom');
@@ -51,11 +53,12 @@ function renderRandomProducts() {
   let productOne = selectRandomProductIndex();
   let productTwo = selectRandomProductIndex();
   let productThree = selectRandomProductIndex();
-  // seriously consider using an array. 
+  // seriously consider using an array.
   // remember:  how do you know if an array inculdes something? maybe google
   // while (productOne === productTwo) {
   //   productTwo = selectRandomProductIndex();
   // }
+  
   imageOne.src = allProduct[productOne].src;
   imageOne.alt = allProduct[productOne].name;
   allProduct[productOne].views++;
@@ -104,6 +107,8 @@ function handleButtonClick(event){ //eslint-disable-line
     renderResults();
   }
 }
+
+
 
 renderRandomProducts();
 
