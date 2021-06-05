@@ -23,27 +23,35 @@ function Product(name, fileExtension = 'jpg') {
   this.views = 0;
   allProduct.push(this);
 }
-// product instanciation
-new Product('bag');
-new Product('banana');
-new Product('bathroom');
-new Product('boots');
-new Product('breakfast');
-new Product('bubblegum');
-new Product('chair');
-new Product('cthulhu');
-new Product('dog-duck');
-new Product('dragon');
-new Product('pen');
-new Product('pet-sweep');
-new Product('scissors');
-new Product('shark');
-new Product('sweep', 'png');
-new Product('tauntaun');
-new Product('unicorn');
-new Product('water-can');
-new Product('wine-glass');
 
+// get from local storage
+let retrieveAllProduct = localStorage.getItem('product');
+if (retrieveAllProduct) {
+  // parse the data
+  let parsedAllProduct = JSON.parse(retrieveAllProduct);
+  allProduct = parsedAllProduct;
+
+} else {
+  new Product('bag');
+  new Product('banana');
+  new Product('bathroom');
+  new Product('boots');
+  new Product('breakfast');
+  new Product('bubblegum');
+  new Product('chair');
+  new Product('cthulhu');
+  new Product('dog-duck');
+  new Product('dragon');
+  new Product('pen');
+  new Product('pet-sweep');
+  new Product('scissors');
+  new Product('shark');
+  new Product('sweep', 'png');
+  new Product('tauntaun');
+  new Product('unicorn');
+  new Product('water-can');
+  new Product('wine-glass');
+}
 
 
 function selectRandomProductIndex() {
@@ -59,7 +67,7 @@ function renderRandomProducts() {
     }
 
   }
-console.log (renderImages)
+  // console.log (renderImages)
   let productOne = renderImages.shift();
   let productTwo = renderImages.shift();
   let productThree = renderImages.shift();
@@ -95,6 +103,9 @@ function handleProductClick(event) {
   if (clicks === clicksAllowed) {
     renderchart();
     myContainer.removeEventListener('click', handleProductClick);
+    // let allProduct;
+    let storedImages = JSON.stringify(allProduct);
+    localStorage.setItem('product', storedImages);
   }
 }
 
