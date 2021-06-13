@@ -24,7 +24,7 @@ section img {
 }
 
 main div {
-  background-color: peachpuff;
+  background-color: rgb(241, 190, 146);
   width: max-content;
   padding: 10px;
   margin: auto;
@@ -35,5 +35,3 @@ main div {
 main div:hover, section img:hover {
   cursor: pointer;
 }
-
-
